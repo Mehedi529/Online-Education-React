@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-vars */
-// Import the necessary libraries
 import React from 'react';
 import MainMenuContent from '../../components/MainMenuContent';
 import Footer from '../../components/Footer';
@@ -22,17 +21,23 @@ const Courses = () => {
         // Generate the PDF content
         const pdf = generatePDFContent(courseDetails);
 
-        // Create a Blob from the PDF content
-        const blob = new Blob([pdf.output('blob')], { type: 'application/pdf' });
+        // Convert the Blob to a data URL
+        const dataURL = URL.createObjectURL(pdf.output('blob'));
 
-        // Create a download link and trigger the download
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = `${courseTitle}_details.pdf`;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+        // Open the PDF in a new tab for viewing
+        const newTab = window.open(dataURL, '_blank');
+
+        // Check if the new tab is null (could be blocked by popup blockers)
+        if (!newTab) {
+            // Fallback: Create a link and trigger download
+            const link = document.createElement('a');
+            link.href = dataURL;
+            link.target = '_blank';
+            link.setAttribute('rel', 'noopener noreferrer');
+
+            // Trigger a click event on the link
+            link.click();
+        }
     };
 
     return (
@@ -40,7 +45,7 @@ const Courses = () => {
             <MainMenuContent />
             <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-center my-4">This is the Courses Page</h1>
 
-            <div className="flex flex-col md:flex-row md:space-x-4">
+            <div className="flex flex-col md:flex-row md:space-x-4 card-container">
                 <div className="card bg-base-100 shadow-xl mb-4 md:mb-0">
                     <figure><img src={powerSystem} alt="Power System" className="w-full h-64 object-cover" /></figure>
                     <div className="card-body p-4">
