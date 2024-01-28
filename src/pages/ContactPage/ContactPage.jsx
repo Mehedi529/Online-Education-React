@@ -7,11 +7,12 @@ import Footer from '../../components/Footer';
 // import { useState } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 
+
 const ContactPage = () => {
   const map =
     'https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14596.915977883844!2d90.42282225000001!3d23.8460009!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1706128107146!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"';
 
-  const [state, handleSubmit] = useForm('xrgwveyd');
+  const [state, handleSubmit] = useForm('mzbndyqw');
 
   if (state.submitting) {
     return <p>Submitting...</p>;
