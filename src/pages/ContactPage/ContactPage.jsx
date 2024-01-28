@@ -3,10 +3,7 @@
 import React from 'react';
 import MainMenuContent from '../../components/MainMenuContent';
 import Footer from '../../components/Footer';
-// Remove the unused import for useState
-// import { useState } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
-
 
 const ContactPage = () => {
   const map =
@@ -32,18 +29,18 @@ const ContactPage = () => {
   return (
     <div>
       <MainMenuContent />
-      <h1>This is contact page</h1>
+      <h1 className="text-center text-2xl md:text-4xl font-bold my-4">Contact Page</h1>
 
       <section className="contacts padding">
-        <div className="container shadow flex">
-          <div className="left w-1/2">
-            <iframe src={map} className="w-full h-full"></iframe>
+        <div className="container shadow flex flex-col md:flex-row">
+          <div className="left w-full md:w-1/2 mb-4 md:mb-0">
+            <iframe src={map} className="w-full h-48 md:h-full"></iframe>
           </div>
-          <div className="right w-1/2 p-4">
+          <div className="right w-full md:w-1/2 p-4">
             <h1 className="text-3xl font-bold mb-2">Contact us</h1>
             <p className="mb-4">We're open for any suggestion or just to have a chat</p>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="box">
                 <h4 className="font-bold">ADDRESS:</h4>
                 <p>Nikunja-2, Khilkhet, Dhaka</p>
@@ -127,7 +124,7 @@ const ContactPage = () => {
               <button
                 type="submit"
                 disabled={state.submitting}
-                className="bg-blue-500 text-white px-4 py-2 rounded-md"
+                className="bg-blue-500 text-white px-4 py-2 rounded-md w-full sm:w-auto"
               >
                 Submit
               </button>
