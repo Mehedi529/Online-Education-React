@@ -1,0 +1,61 @@
+/* Team.css */
+
+.team-member {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.team-member:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.team-member-info {
+    text-align: center;
+    padding: 20px;
+}
+
+.team-member-info h4 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.team-member-info p {
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.team-member-image img {
+    border: 4px solid #fff;
+    transition: border 0.3s;
+}
+
+.team-member-image img:hover {
+    border: 4px solid #1a202c; /* Change the color to your preference */
+    transform: scale(1.1);
+}
+
+.team-member-socials {
+    margin-top: 15px;
+}
+
+.team-member-socials li {
+    margin: 0 8px;
+}
+
+.team-member-socials a {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #1a202c;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.team-member-socials a:hover {
+    background-color: #2d3748; /* Change the color to your preference */
+}

@@ -3,6 +3,7 @@
 import React from 'react';
 import MainMenuContent from '../../components/MainMenuContent';
 import Footer from '../../components/Footer';
+import './ContactPage.css';
 
 const ContactPage = () => {
 

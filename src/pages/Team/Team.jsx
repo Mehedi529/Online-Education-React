@@ -6,9 +6,10 @@ import Footer from '../../components/Footer';
 import sabbir from '../../../public/sabbir.png';
 import shafal from '../../../public/shafal.png';
 import shahin from '../../../public/shahin.png';
+import './Team.css'; // Import the CSS file
 
 const Team = () => {
-    const [activeCard, setActiveCard] = useState(null); // Add useState here
+    const [activeCard, setActiveCard] = useState(null);
 
     const teamMembers = [
         {
@@ -56,9 +57,7 @@ const Team = () => {
                             <div
                                 key={member.id}
                                 onClick={() => handleCardClick(member.id)}
-                                className={`team-member flex-shrink-0 w-full md:w-1/3 lg:w-1/4 bg-white p-4 m-2 border border-gray-300 rounded transition-transform ${
-                                    member.id === activeCard ? 'hover:translate-y-(-5)' : ''
-                                }`}
+                                className={`team-member flex-shrink-0 w-full md:w-1/2 lg:w-1/3 xl:w-1/4 bg-white p-4 m-2 border border-gray-300 rounded transition-transform`}
                             >
                                 <div className="team-member-image">
                                     <img
