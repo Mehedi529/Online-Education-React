@@ -1,55 +1,61 @@
+/* eslint-disable react/no-unknown-property */
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 const MainMenuContent = () => {
-    return (
-        <div className='bg-white text-black'>
-            <div className="navbar bg-[#adceba]">
-                <div className="navbar-start">
-                    <div className="dropdown">
-                        <label tabIndex={0} className="btn btn-ghost lg:hidden">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-                        </label>
-                        <ul tabIndex={0} className="menu menu-sm text-black font-bold dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                            <li><NavLink to="/" >Home</NavLink></li>
-                            <li><NavLink to="/Courses" >Courses</NavLink></li>
-                            <li><NavLink to="/Team">Team</NavLink></li>
-                            <li><NavLink to="/Contact">Contact</NavLink></li>
-                        </ul>
-                    </div>
-                    <a className="btn btn-ghost text-xl">
-                        <span className="text-black font-bold m-0 p-0">Online</span>
-                        <span className="text-orange-500 font-bold m-0 p-0">Education</span>
-                    </a>
+    const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
 
+  const toggleMegaMenu = () => {
+    setIsMegaMenuOpen(!isMegaMenuOpen);
+  };
 
-
-                </div>
-                <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal text-black font-bold px-1">
-                            <li><NavLink to="/" >Home</NavLink></li>
-                            <li><NavLink to="/Courses" >Courses</NavLink></li>
-                            <li><NavLink to="/Team">Team</NavLink></li>
-                            <li><NavLink to="/Contact">Contact</NavLink></li>
-                    </ul>
-                </div>
-                <div className="navbar-end">
-                    <NavLink to="/login" className="btn bg-[#adceba] border border-green-500 text-black font-bold mr-4 hover:text-white hover:bg-green-500">
-                        Login
-                    </NavLink>
-                    <NavLink to="/registration" className="btn bg-[#adceba] border border-green-500 text-black font-bold hover:text-white hover:bg-green-500">
-                        Registration
-                    </NavLink>
-                </div>
-
-
-
-            </div>
-
-
+  return (
+    <div className="bg-white border-gray-200 dark:bg-gray-900">
+      <div className="flex flex-wrap items-center justify-between max-w-screen-xl mx-auto p-4">
+        <a href="https://flowbite.com" className="flex items-center space-x-3 rtl:space-x-reverse">
+          <img src="https://flowbite.com/docs/images/logo.svg" className="h-8" alt="Flowbite Logo" />
+          <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Advance Engineering</span>
+        </a>
+        <div className="flex items-center md:order-2 space-x-1 md:space-x-2 rtl:space-x-reverse">
+          <a href="#" className="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">Login</a>
+          <a href="#" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Sign up</a>
+          <button
+            data-collapse-toggle="mega-menu"
+            type="button"
+            onClick={toggleMegaMenu}
+            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="mega-menu"
+            aria-expanded={isMegaMenuOpen}
+          >
+            <span className="sr-only">Open main menu</span>
+            <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+            </svg>
+          </button>
         </div>
-    );
+        <div id="mega-menu" className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${isMegaMenuOpen ? 'block' : 'hidden'}`}>
+        <ul class="flex flex-col mt-4 font-medium md:flex-row md:mt-0 md:space-x-8 rtl:space-x-reverse">
+                <li>
+                    <NavLink to="/" className="block py-2 px-3 text-blue-600 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-blue-500 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page">Home</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/Courses"   className="flex items-center justify-between w-full py-2 px-3 font-medium text-gray-900 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
+                        Courses 
+                    </NavLink>
+                    
+                </li>
+                <li>
+                    <NavLink to="/Team" className="block py-2 px-3 text-gray-900 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">Team</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/Contact" className="block py-2 px-3 text-gray-900 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">Contact</NavLink>
+                </li>
+            </ul>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default MainMenuContent;
